@@ -17,18 +17,10 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/search" element={<Search />} />
         </Routes>
       </BrowserRouter>
-      {/* <Intro />
-      <Content />
-      <Menus />
-      <MoviesDetail
-        movie={MovieDetail}
-        showModal={MovieDetail ? true : false}
-      /> */}
-      {/* <SearchMovies /> */}
     </div>
   );
 }
