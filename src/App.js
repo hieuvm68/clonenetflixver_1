@@ -11,13 +11,13 @@ import SearchMovies from "./components/SearchMovies/SearchMovies";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Search from "./components/Pages/Search";
 function App() {
-  const { MovieDetail } = useSelector((state) => state.infoMovies);
+  // const { MoviesDetail } = useSelector((state) => state.infoMovies);
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
         </Routes>
       </BrowserRouter>
