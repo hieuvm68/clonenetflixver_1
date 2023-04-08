@@ -22,10 +22,10 @@ const SearchMovies = (props) => {
   const dispatch = useDispatch();
   // console.log(useLocation().search);
   const { SearchMovies } = useSelector((state) => state.infoMovies);
-  const keywords = useQuery().get("keyword");
+  const keywords = useQuery().get("keywords");
   console.log(keywords);
   useEffect(() => {
-    if (!keywords) dispatch(getSearchMovies(keywords));
+    if (keywords) dispatch(getSearchMovies(keywords));
   }, [keywords, dispatch]);
   console.log(SearchMovies);
   // console.log(useLocation().search);
