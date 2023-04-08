@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as Types from "../type";
+import * as Types from "../type/index";
 const API_KEY = "56c899ce630c4a1edf84724aeecabe75";
 const BASE_URL = "https://api.themoviedb.org/3";
 export const getNetflixOriginals = () => async (dispatch) => {
