@@ -1,32 +1,29 @@
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import React from "react";
-import { useState } from "react";
-import { VscMute, VscUnmute } from "react-icons/vsc";
 import styled from "styled-components";
-const Intro = () => {
-  const [isMuted, setIsMuted] = useState(true);
+import { VscMute, VscUnmute } from "react-icons/vsc";
 
+function Intro(props) {
+  const [isMuted, setIsMuted] = useState(true);
   return (
-    <IntroContainer>
+    <IntroSection>
       <ReactPlayer
         playing={true}
+        loop={true}
         width="100%"
         height="100%"
         volume={1}
-        loop={true}
         muted={isMuted}
-        url="https://vimeo.com/235307580"
+        // url="https://vimeo.com/375868537"
+        url="https://vimeo.com/322858764"
         className="videoIntro"
       />
       <div className="infoIntro">
-        <h1 className="headingIntro">Wormwood NetflixNOT</h1>
-        <p className="overviewIntro">
-          Materia for Netflix We had the exciting task to visualize the LSD trip
-          sequences for Netflix’ upcoming documentary series „Wormwood“ by Oscar
-          winning director Errol Morris (director of „The Fog of War“). This
-          six-part series probes the mysterious death of a Cold War military
-          scientist involved in a secret biological warfare program. Starting
-          December 15, 2017.
+        <h1 className="heading">Netflix Elite</h1>
+        <p className="overview">
+          {
+            "Netflix Elite Launch Campaign Director: Fernanda Weinfeld Production Company: Awake Film Agency: Akqa"
+          }
         </p>
       </div>
       {isMuted ? (
@@ -41,16 +38,18 @@ const Intro = () => {
         />
       )}
       <div className="fadeBottom"></div>
-    </IntroContainer>
+    </IntroSection>
   );
-};
+}
 
-export default Intro;
-const IntroContainer = styled.div`
-  background: var(--color-background);
+export default React.memo(Intro);
+
+const IntroSection = styled.header`
+  background-color: var(--color-background);
   position: relative;
-  color: var(--color-white);
   padding-top: 56%;
+  color: var(--color-white);
+
   .videoIntro {
     position: absolute;
     top: 0;
@@ -60,7 +59,6 @@ const IntroContainer = styled.div`
     position: absolute;
     top: 140px;
     left: 30px;
-
     @media screen and (max-width: 800px) {
       top: 120px;
       left: 25px;
@@ -69,11 +67,9 @@ const IntroContainer = styled.div`
       top: 100px;
       left: 15px;
     }
-
-    .headingIntro {
+    .heading {
       font-size: 60px;
-      transition: all 0.3s ease;
-
+      transition: all 0.3s;
       @media screen and (max-width: 800px) {
         font-size: 40px;
       }
@@ -81,7 +77,7 @@ const IntroContainer = styled.div`
         font-size: 24px;
       }
     }
-    .overviewIntro {
+    .overview {
       max-width: 550px;
       width: 100%;
       line-height: 1.3;
@@ -95,6 +91,19 @@ const IntroContainer = styled.div`
       }
     }
   }
+  .fadeBottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(15, 15, 15, 0.6) 40%,
+      rgb(17, 17, 17),
+      rgb(17, 17, 17)
+    );
+  }
   .btnVolume {
     position: absolute;
     height: 40px;
@@ -106,12 +115,13 @@ const IntroContainer = styled.div`
     padding: 6px;
     color: #bbb;
     border: #fff solid 1px;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     transform: scale(1);
     &:hover {
       color: #fff;
+      background-color: rgba(211, 211, 211, 0.178);
       transform: scale(1.2);
-      background-color: rgba(211, 211, 211, 0.18);
+      transition: all 0.3s;
     }
     @media screen and (max-width: 800px) {
       height: 30px;
@@ -123,17 +133,5 @@ const IntroContainer = styled.div`
       width: 20px;
       padding: 1px;
     }
-  }
-  .fadeBottom {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    background-image: linear-gradient(
-      180deg,
-      transparent,
-      rgba(15, 15, 15, 0.6) 40%,
-      rgb(17, 17, 17)
-    );
   }
 `;

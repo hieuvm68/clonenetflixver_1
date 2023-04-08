@@ -1,27 +1,23 @@
-import "./App.css";
 import React from "react";
-import Content from "./components/Contents/Content";
-import Intro from "./components/Intro/Intro";
-import Menus from "./components/Menus/Menus";
-import Navbar from "./components/Navbar/Navbar";
-import MoviesDetail from "./components/MoviesDetail/MoviesDetail";
-import { useSelector } from "react-redux";
-import Home from "./components/Pages/Home";
-import SearchMovies from "./components/SearchMovies/SearchMovies";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Search from "./components/Pages/Search";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import SearchPage from "./pages/Search";
+import Home from "./pages/Home";
+import "./App.css";
+
 function App() {
-  // const { MoviesDetail } = useSelector((state) => state.infoMovies);
   return (
-    <div className="App">
-      <BrowserRouter>
+    <Router>
+      <div className="App">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/search" component={SearchPage} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
