@@ -7,7 +7,7 @@ const Search = (props) => {
   const { MovieDetail } = useSelector((state) => state.infoMovies);
   const [isShowMovieDetail, setIsShowMovieDetail] = useState(false);
   useEffect(() => {
-    setIsShowMovieDetail(MovieDetail ? true : false);
+    setIsShowMovieDetail(MovieDetail ? false : true);
   }, [MovieDetail]);
   return (
     <div>
