@@ -18,9 +18,9 @@ function SearchPage(props) {
   const keywords = useQuery().get("keywords");
   const [windowDimensions] = useViewport();
 
-  useEffect(() => {
-    if (keywords) dispatch(getSeachMovies(keywords));
-  }, [keywords, dispatch]);
+  // useEffect(() => {
+  //   if (keywords) dispatch(getSeachMovies(keywords));
+  // }, [keywords, dispatch]);
 
   return (
     <>
